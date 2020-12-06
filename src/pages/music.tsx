@@ -6,8 +6,8 @@ import React from 'react';
 import useSWR from 'swr';
 
 export default function Index(): JSX.Element {
-  const { data: recentTracks } = useSWR('/api/spotify/recentTracks', fetcher, { revalidateOnFocus: false });
-  const { data: topTracks } = useSWR('/api/spotify/topTracks', fetcher, { revalidateOnFocus: false });
+  const { data: recentTracks } = useSWR('/api/spotify/recentTracks', fetcher);
+  const { data: topTracks } = useSWR('/api/spotify/topTracks', fetcher);
   const { colorMode } = useColorMode();
   const occupationColor = {
     light: 'gray.700',
@@ -32,31 +32,31 @@ export default function Index(): JSX.Element {
           </Heading>
           <Wrap justify="center">
             {topTracks &&
-              topTracks.slice(0, 6).map((track: any) => (
-                <WrapItem>
-                  <Box minWidth="110px" maxWidth="110px">
-                    <Image boxSize="110px" src={track.albumImageUrl} alt={track.album} />
+              topTracks.map((track: any) => (
+                <WrapItem key={track.title}>
+                  <Box minWidth="100px" maxWidth="100px">
+                    <Image boxSize="100px" src={track.albumImageUrl} alt={track.album} />
                     <Box pt={1}>
                       <Text
                         fontWeight="medium"
-                        maxWidth="110px"
+                        maxWidth="100px"
                         whiteSpace="nowrap"
                         overflow="hidden"
                         textOverflow="ellipsis"
                         fontSize="xs"
                       >
-                        {track && (track?.title || 'Not Playing')}
+                        {track.title}
                       </Text>
                       <Text
                         color="gray.500"
-                        maxWidth="110px"
+                        maxWidth="100px"
                         mb={2}
                         whiteSpace="nowrap"
                         overflow="hidden"
                         textOverflow="ellipsis"
                         fontSize="xs"
                       >
-                        {track && (track?.artist || 'Spotify')}
+                        {track.artist}
                       </Text>
                     </Box>
                   </Box>
@@ -68,31 +68,31 @@ export default function Index(): JSX.Element {
           </Heading>
           <Wrap justify="center">
             {recentTracks &&
-              recentTracks.slice(0, 6).map((track: any) => (
-                <WrapItem>
-                  <Box minWidth="110px" maxWidth="110px">
-                    <Image boxSize="110px" src={track.albumImageUrl} alt={track.album} />
+              recentTracks.map((track: any) => (
+                <WrapItem key={track.title}>
+                  <Box minWidth="100px" maxWidth="100px">
+                    <Image boxSize="100px" src={track.albumImageUrl} alt={track.album} />
                     <Box pt={1}>
                       <Text
                         fontWeight="medium"
-                        maxWidth="110px"
+                        maxWidth="100px"
                         whiteSpace="nowrap"
                         overflow="hidden"
                         textOverflow="ellipsis"
                         fontSize="xs"
                       >
-                        {track && (track?.title || 'Not Playing')}
+                        {track.title}
                       </Text>
                       <Text
                         color="gray.500"
-                        maxWidth="110px"
+                        maxWidth="100px"
                         mb={2}
                         whiteSpace="nowrap"
                         overflow="hidden"
                         textOverflow="ellipsis"
                         fontSize="xs"
                       >
-                        {track && (track?.artist || 'Spotify')}
+                        {track.artist}
                       </Text>
                     </Box>
                   </Box>

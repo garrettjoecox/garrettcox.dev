@@ -6,9 +6,7 @@ import useSWR from 'swr';
 const NowPlaying = () => {
   const [duration, setDuration] = useState(0);
   const [progress, setProgress] = useState(0);
-  const { data, revalidate } = useSWR('/api/spotify/nowPlaying', fetcher, {
-    revalidateOnFocus: false,
-  });
+  const { data, revalidate } = useSWR('/api/spotify/nowPlaying', fetcher);
   const { colorMode } = useColorMode();
   const borderColor = {
     light: 'gray.200',
@@ -16,7 +14,7 @@ const NowPlaying = () => {
   };
 
   useEffect(() => {
-    if (data) {
+    if (data?.isPlaying) {
       setDuration(data.duration_ms);
       setProgress(data.progress_ms);
     } else {
@@ -26,7 +24,7 @@ const NowPlaying = () => {
   }, [data]);
 
   useEffect(() => {
-    if (data) {
+    if (data?.isPlaying) {
       const i = setInterval(() => {
         setProgress((prevProgress) => {
           if (prevProgress > data.duration_ms) {
@@ -39,9 +37,11 @@ const NowPlaying = () => {
 
       return () => clearInterval(i);
     }
+
+    return () => {};
   }, [data]);
 
-  return (
+  return data?.isPlaying ? (
     <Box
       mb={4}
       display="flex"
@@ -92,7 +92,7 @@ const NowPlaying = () => {
         </Box>
       </Stack>
     </Box>
-  );
+  ) : null;
 };
 
 export default NowPlaying;
