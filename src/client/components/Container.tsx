@@ -12,7 +12,6 @@ const StickyNav = styled(Flex)`
   position: sticky;
   z-index: 10;
   top: 0;
-  backdrop-filter: saturate(180%) blur(20px);
   transition: background-color 0.1 ease-in-out;
 `;
 
@@ -24,7 +23,7 @@ const Container: FC<{}> = ({ children }) => {
   };
   const navBgColor = {
     light: 'rgba(255, 255, 255, 0.8)',
-    dark: 'rgba(23, 25, 35, 0.8)',
+    dark: 'rgba(16, 18, 25, 0.8)',
   };
 
   return (
@@ -33,7 +32,7 @@ const Container: FC<{}> = ({ children }) => {
         styles={css`
           html {
             scroll-behavior: smooth;
-            background: ${colorMode === 'light' ? 'white' : '#171923'};
+            background: ${colorMode === 'light' ? 'white' : '#101219'};
           }
           #__next {
             display: flex;
