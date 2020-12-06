@@ -96,19 +96,30 @@ export default function Index(): JSX.Element {
   );
 }
 
-const CommandText: FC<{}> = ({ children }) => (
-  <Flex>
-    <Text as="span" fontFamily="monospace" pr="2" fontSize="20px" color="blue.300">
-      ~/dev
-    </Text>
-    <Text as="span" fontFamily="monospace" pr="2" fontSize="20px">
-      ❯❯❯
-    </Text>
-    <Text as="span" fontFamily="monospace" pr="2" fontSize="20px" color="green.300">
-      {children}
-    </Text>
-  </Flex>
-);
+const CommandText: FC<{}> = ({ children }) => {
+  const { colorMode } = useColorMode();
+  const greenColor = {
+    light: 'green.500',
+    dark: 'green.300',
+  };
+  const blueColor = {
+    light: 'blue.500',
+    dark: 'blue.300',
+  };
+  return (
+    <Flex>
+      <Text as="span" fontFamily="monospace" pr="2" fontSize="20px" color={blueColor[colorMode]}>
+        ~/dev
+      </Text>
+      <Text as="span" fontFamily="monospace" pr="2" fontSize="20px">
+        ❯❯❯
+      </Text>
+      <Text as="span" fontFamily="monospace" pr="2" fontSize="20px" color={greenColor[colorMode]}>
+        {children}
+      </Text>
+    </Flex>
+  );
+};
 
 const StarRating: FC<{ rating: number }> = ({ rating }) => {
   const { colorMode } = useColorMode();

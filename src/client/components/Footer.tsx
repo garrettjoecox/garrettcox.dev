@@ -1,5 +1,6 @@
 import { createIcon, Flex, IconButton, Link, useColorMode } from '@chakra-ui/react';
 import React from 'react';
+import NowPlaying from './NowPlaying';
 
 const GithubIcon = createIcon({
   displayName: 'GithubIcon',
@@ -31,6 +32,7 @@ const Footer = () => {
 
   return (
     <Flex align="center" mb={4} direction="column">
+      <NowPlaying />
       <div>
         <Link href="https://github.com/garrettjoecox" title="GitHub" isExternal>
           <IconButton

@@ -6,9 +6,7 @@ export default class Document extends NextDocument {
     return (
       <Html lang="en">
         <Head>
-          <title>Garrett Cox</title>
           <meta charSet="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta httpEquiv="content-type" content="text/html; charset=utf-8" />
           <meta name="google-site-verification" content="QKaBf-q9jtSoWsWHrzudNrFiJ70f3xbvvpbASCjtNdQ" />
           <meta name="author" content="Garrett Cox" />

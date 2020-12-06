@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
-import { Flex, IconButton, useColorMode } from '@chakra-ui/react';
+import { Box, Button, Flex, IconButton, useColorMode } from '@chakra-ui/react';
 import { css, Global } from '@emotion/react';
 import styled from '@emotion/styled';
+import NextLink from 'next/link';
 import React, { FC } from 'react';
 import Particles from 'react-tsparticles';
 import Footer from './Footer';
@@ -32,16 +33,16 @@ const Container: FC<{}> = ({ children }) => {
         styles={css`
           html {
             scroll-behavior: smooth;
+            background: ${colorMode === 'light' ? 'white' : '#171923'};
           }
           #__next {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            background: ${colorMode === 'light' ? 'white' : '#171923'};
           }
           #tsparticles {
             position: absolute;
-            z-index: 0;
+            z-index: -1;
             min-width: 100vw;
             min-height: 100vh;
             height: 100%;
@@ -67,13 +68,18 @@ const Container: FC<{}> = ({ children }) => {
           icon={colorMode === 'dark' ? <SunIcon color="white" /> : <MoonIcon />}
           onClick={toggleColorMode}
         />
-        {/* <Box>
+        <Box>
+          <NextLink href="/" passHref>
+            <Button as="a" variant="ghost" p={[1, 4]}>
+              Home
+            </Button>
+          </NextLink>
           <NextLink href="/music" passHref>
             <Button as="a" variant="ghost" p={[1, 4]}>
               Music
             </Button>
           </NextLink>
-          <NextLink href="/games" passHref>
+          {/* <NextLink href="/games" passHref>
             <Button as="a" variant="ghost" p={[1, 4]}>
               Games
             </Button>
@@ -82,8 +88,8 @@ const Container: FC<{}> = ({ children }) => {
             <Button as="a" variant="ghost" p={[1, 4]}>
               Movies
             </Button>
-          </NextLink>
-        </Box> */}
+          </NextLink> */}
+        </Box>
       </StickyNav>
       <Flex as="main" justifyContent="center" flexDirection="column" color={primarytextColor[colorMode]} px={8}>
         {children}
