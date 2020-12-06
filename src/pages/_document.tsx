@@ -1,3 +1,4 @@
+import { ColorModeScript } from '@chakra-ui/react';
 import NextDocument, { Head, Html, Main, NextScript } from 'next/document';
 
 export default class Document extends NextDocument {
@@ -21,6 +22,7 @@ export default class Document extends NextDocument {
           <link href="/favicon.ico" rel="shortcut icon" />
         </Head>
         <body>
+          <ColorModeScript initialColorMode="dark" />
           <Main />
           <NextScript />
         </body>
