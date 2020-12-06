@@ -6,7 +6,9 @@ import useSWR from 'swr';
 const NowPlaying = () => {
   const [duration, setDuration] = useState(0);
   const [progress, setProgress] = useState(0);
-  const { data, revalidate } = useSWR('/api/spotify/nowPlaying', fetcher);
+  const { data, revalidate } = useSWR('/api/spotify/nowPlaying', fetcher, {
+    revalidateOnFocus: false,
+  });
   const { colorMode } = useColorMode();
   const borderColor = {
     light: 'gray.200',
