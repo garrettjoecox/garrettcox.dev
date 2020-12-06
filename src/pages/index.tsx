@@ -1,115 +1,127 @@
-import { CheckCircleIcon, ExternalLinkIcon } from '@chakra-ui/icons';
-import {
-  Button,
-  Code,
-  Flex,
-  Heading,
-  Icon,
-  Link as ChakraLink,
-  List,
-  ListIcon,
-  ListItem,
-  Stack,
-  Switch,
-  Text,
-  useColorMode,
-} from '@chakra-ui/react';
-import React from 'react';
+/* eslint-disable @typescript-eslint/no-use-before-define */
+import { StarIcon } from '@chakra-ui/icons';
+import { Box, Flex, Heading, Spacer, Stack, Text, useColorMode } from '@chakra-ui/react';
+import Container from 'client/components/Container';
+import React, { FC, useMemo } from 'react';
 
 export default function Index(): JSX.Element {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
+  const occupationColor = {
+    light: 'gray.700',
+    dark: 'gray.300',
+  };
+  const locationColor = {
+    light: 'gray.400',
+    dark: 'gray.600',
+  };
 
-  const bgColor = { light: 'gray.50', dark: 'gray.900' };
-  const color = { light: 'black', dark: 'white' };
-  const isDark = colorMode === 'dark';
+  const languages: { [index: string]: number } = useMemo(
+    () => ({
+      Typescript: 5,
+      Javascript: 5,
+      PHP: 3,
+      SQL: 2,
+      Java: 2,
+      Python: 1,
+      Rust: 1,
+    }),
+    [],
+  );
+  const tools: { [index: string]: number } = useMemo(
+    () => ({
+      React: 5,
+      'React Native': 5,
+      Vue: 4,
+      Laravel: 4,
+      '.NET': 3,
+      AWS: 2,
+    }),
+    [],
+  );
+  const yearsOfExperience = useMemo(() => new Date().getFullYear() - new Date('2015').getFullYear(), []);
+
   return (
-    <Flex
-      direction="column"
-      alignItems="center"
-      justifyContent="flex-start"
-      bg={bgColor[colorMode]}
-      color={color[colorMode]}
-    >
-      <Flex direction="column" justifyContent="center" alignItems="center" height="100vh">
-        <Heading as="h1" size="4xl" isTruncated>
-          (4xl) In love with React & Next
-        </Heading>
-        <Heading as="h2" size="3xl" isTruncated>
-          (3xl) In love with React & Next
-        </Heading>
-        <Heading as="h2" size="2xl">
-          (2xl) In love with React & Next
-        </Heading>
-        <Heading as="h2" size="xl">
-          (xl) In love with React & Next
-        </Heading>
-        <Heading as="h3" size="lg">
-          (lg) In love with React & Next
-        </Heading>
-        <Heading as="h4" size="md">
-          (md) In love with React & Next
-        </Heading>
-        <Heading as="h5" size="sm">
-          (sm) In love with React & Next
-        </Heading>
-        <Heading as="h6" size="xs">
-          (xs) In love with React & Next
-        </Heading>
-      </Flex>
-      <Stack spacing="1.5rem" width="100%" maxWidth="48rem" px="1rem">
-        <Text>
-          Example repository of <Code>Next.js</Code> + <Code>chakra-ui</Code>.
-        </Text>
-
-        <List spacing={3} my={0}>
-          <ListItem>
-            <ListIcon as={CheckCircleIcon} color="green.500" />
-            <ChakraLink isExternal href="https://chakra-ui.com" flexGrow={1} mr={2}>
-              Chakra UI <Icon as={ExternalLinkIcon} mx="2px" />
-            </ChakraLink>
-          </ListItem>
-          <ListItem>
-            <ListIcon as={CheckCircleIcon} color="green.500" />
-            <ChakraLink isExternal href="https://nextjs.org" flexGrow={1} mr={2}>
-              Next.js <Icon as={ExternalLinkIcon} mx="2px" />
-            </ChakraLink>
-          </ListItem>
-        </List>
+    <Container>
+      <Stack as="main" spacing={8} justifyContent="center" m="0 auto 4rem auto" maxWidth="700px" width="100%">
+        <Flex flexDirection="column">
+          <CommandText>whoami</CommandText>
+          <Heading letterSpacing="tight" mb={2} size="2xl">
+            Garrett Cox
+          </Heading>
+          <Text color={occupationColor[colorMode]}>
+            Software Engineer with ~ {yearsOfExperience} years of professional experience, Father of 3 beautiful girls,
+            Video Game Nerd, Dr. Pepper Enthusiast
+          </Text>
+          <Text color={locationColor[colorMode]}>Norman, Oklahoma</Text>
+        </Flex>
+        <Flex flexDirection="column" mt={8}>
+          <CommandText>cat skills.md</CommandText>
+          <Flex flexWrap="wrap" justifyContent="space-between">
+            <Box flex="1 1 300px" mr={4}>
+              <Heading letterSpacing="tight" mb={2} size="lg">
+                Languages
+              </Heading>
+              {Object.keys(languages).map((language) => (
+                <Flex key={language}>
+                  <Box py="2">{language}</Box>
+                  <Spacer />
+                  <Box py="2">
+                    <StarRating rating={languages[language]} />
+                  </Box>
+                </Flex>
+              ))}
+            </Box>
+            <Box flex="1 1 300px" mr={4}>
+              <Heading letterSpacing="tight" mb={2} size="lg">
+                Frameworks / Tools
+              </Heading>
+              {Object.keys(tools).map((tool) => (
+                <Flex key={tool}>
+                  <Box py="2">{tool}</Box>
+                  <Spacer />
+                  <Box py="2">
+                    <StarRating rating={tools[tool]} />
+                  </Box>
+                </Flex>
+              ))}
+              <Flex>
+                <Box py="2">And plenty more...</Box>
+                <Spacer />
+              </Flex>
+            </Box>
+          </Flex>
+        </Flex>
       </Stack>
-      <Switch position="fixed" top="1rem" right="1rem" color="green" isChecked={isDark} onChange={toggleColorMode} />
-      <Flex as="footer" py="8rem">
-        <Text>Next ❤️ Chakra</Text>
-      </Flex>
-      <Flex
-        direction="column"
-        alignItems="center"
-        justifyContent="flex-start"
-        bg={bgColor[colorMode]}
-        color={color[colorMode]}
-        flexDirection="row"
-        position="fixed"
-        bottom="0"
-        width="100%"
-        maxWidth="48rem"
-        py={2}
-      >
-        <ChakraLink isExternal href="https://chakra-ui.com" flexGrow={1} mx={2}>
-          <Button width="100%" variant="outline" colorScheme="green">
-            chakra-ui
-          </Button>
-        </ChakraLink>
-
-        <ChakraLink
-          isExternal
-          href="https://github.com/vercel/next.js/blob/canary/examples/with-chakra-ui-typescript"
-          flexGrow={3}
-          mx={2}
-        >
-          <Button width="100%" variant="solid" colorScheme="green">
-            View Repo
-          </Button>
-        </ChakraLink>
-      </Flex>
-    </Flex>
+    </Container>
   );
 }
+
+const CommandText: FC<{}> = ({ children }) => (
+  <Flex>
+    <Text as="span" fontFamily="monospace" pr="2" fontSize="20px" color="blue.300">
+      ~/dev
+    </Text>
+    <Text as="span" fontFamily="monospace" pr="2" fontSize="20px">
+      ❯❯❯
+    </Text>
+    <Text as="span" fontFamily="monospace" pr="2" fontSize="20px" color="green.300">
+      {children}
+    </Text>
+  </Flex>
+);
+
+const StarRating: FC<{ rating: number }> = ({ rating }) => {
+  const { colorMode } = useColorMode();
+  const starColor = {
+    light: 'gray.200',
+    dark: 'gray.700',
+  };
+
+  return (
+    <Box>
+      {[1, 2, 3, 4, 5].map((s) => (
+        <StarIcon key={s} color={6 - s <= rating ? 'yellow.300' : starColor[colorMode]} />
+      ))}
+    </Box>
+  );
+};
