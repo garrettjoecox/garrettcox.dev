@@ -91,7 +91,7 @@ const Container: FC<{}> = ({ children }) => {
           </NextLink> */}
         </Box>
       </StickyNav>
-      <Flex as="main" justifyContent="center" flexDirection="column" color={primarytextColor[colorMode]} px={8}>
+      <Flex as="main" justifyContent="center" flexDirection="column" color={primarytextColor[colorMode]} px={[4, 8]}>
         {children}
         <Footer />
       </Flex>

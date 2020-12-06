@@ -34,12 +34,12 @@ export default function Index(): JSX.Element {
             {topTracks &&
               topTracks.map((track: any) => (
                 <WrapItem key={track.title}>
-                  <Box minWidth="100px" maxWidth="100px">
-                    <Image boxSize="100px" src={track.albumImageUrl} alt={track.album} />
+                  <Box minWidth="105px" maxWidth="105px">
+                    <Image boxSize="105px" src={track.albumImageUrl} alt={track.album} />
                     <Box pt={1}>
                       <Text
                         fontWeight="medium"
-                        maxWidth="100px"
+                        maxWidth="105px"
                         whiteSpace="nowrap"
                         overflow="hidden"
                         textOverflow="ellipsis"
@@ -49,7 +49,7 @@ export default function Index(): JSX.Element {
                       </Text>
                       <Text
                         color="gray.500"
-                        maxWidth="100px"
+                        maxWidth="105px"
                         mb={2}
                         whiteSpace="nowrap"
                         overflow="hidden"
@@ -70,12 +70,12 @@ export default function Index(): JSX.Element {
             {recentTracks &&
               recentTracks.map((track: any) => (
                 <WrapItem key={track.title}>
-                  <Box minWidth="100px" maxWidth="100px">
-                    <Image boxSize="100px" src={track.albumImageUrl} alt={track.album} />
+                  <Box minWidth="105px" maxWidth="105px">
+                    <Image boxSize="105px" src={track.albumImageUrl} alt={track.album} />
                     <Box pt={1}>
                       <Text
                         fontWeight="medium"
-                        maxWidth="100px"
+                        maxWidth="105px"
                         whiteSpace="nowrap"
                         overflow="hidden"
                         textOverflow="ellipsis"
@@ -85,7 +85,7 @@ export default function Index(): JSX.Element {
                       </Text>
                       <Text
                         color="gray.500"
-                        maxWidth="100px"
+                        maxWidth="105px"
                         mb={2}
                         whiteSpace="nowrap"
                         overflow="hidden"
