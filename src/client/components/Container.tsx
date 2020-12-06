@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-use-before-define */
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { Flex, IconButton, useColorMode } from '@chakra-ui/react';
 import { css, Global } from '@emotion/react';
 import styled from '@emotion/styled';
 import React, { FC } from 'react';
+import Particles from 'react-tsparticles';
 import Footer from './Footer';
 
 const StickyNav = styled(Flex)`
@@ -15,11 +17,6 @@ const StickyNav = styled(Flex)`
 
 const Container: FC<{}> = ({ children }) => {
   const { colorMode, toggleColorMode } = useColorMode();
-
-  const bgColor = {
-    light: 'white',
-    dark: 'gray.900',
-  };
   const primarytextColor = {
     light: 'black',
     dark: 'white',
@@ -42,8 +39,16 @@ const Container: FC<{}> = ({ children }) => {
             min-height: 100vh;
             background: ${colorMode === 'light' ? 'white' : '#171923'};
           }
+          #tsparticles {
+            position: absolute;
+            z-index: 0;
+            min-width: 100vw;
+            min-height: 100vh;
+            height: 100%;
+          }
         `}
       />
+      <Particles options={colorMode === 'dark' ? darkParticleConfig : lightParticleConfig} />
       <StickyNav
         flexDirection="row"
         justifyContent="space-between"
@@ -80,14 +85,7 @@ const Container: FC<{}> = ({ children }) => {
           </NextLink>
         </Box> */}
       </StickyNav>
-      <Flex
-        as="main"
-        justifyContent="center"
-        flexDirection="column"
-        bg={bgColor[colorMode]}
-        color={primarytextColor[colorMode]}
-        px={8}
-      >
+      <Flex as="main" justifyContent="center" flexDirection="column" color={primarytextColor[colorMode]} px={8}>
         {children}
         <Footer />
       </Flex>
@@ -96,3 +94,48 @@ const Container: FC<{}> = ({ children }) => {
 };
 
 export default Container;
+
+const darkParticleConfig = {
+  fpsLimit: 60,
+  particles: {
+    color: {
+      value: '#ffffff',
+    },
+    move: {
+      direction: 'top-right',
+      enable: true,
+      random: true,
+      speed: 1,
+      outMode: 'out',
+      straight: false,
+    },
+    number: {
+      density: {
+        enable: true,
+        value_area: 800,
+      },
+      value: 20,
+    },
+    opacity: {
+      value: 0.5,
+    },
+    shape: {
+      type: 'circle',
+    },
+    size: {
+      random: true,
+      value: 2,
+    },
+  },
+  detectRetina: true,
+};
+
+const lightParticleConfig = {
+  ...darkParticleConfig,
+  particles: {
+    ...darkParticleConfig.particles,
+    color: {
+      value: '#000000',
+    },
+  },
+};
