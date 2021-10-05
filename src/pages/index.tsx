@@ -49,7 +49,7 @@ export default function Index(): JSX.Element {
             Garrett Cox
           </Heading>
           <Text color={occupationColor[colorMode]}>
-            Software Engineer with ~ {yearsOfExperience} years of professional experience, Father of 3 beautiful girls,
+            Software Engineer with ~ {yearsOfExperience} years of professional experience, Father of 4 beautiful girls,
             Video Game Nerd, Dr. Pepper Enthusiast
           </Text>
           <Text color={locationColor[colorMode]}>Norman, Oklahoma</Text>
