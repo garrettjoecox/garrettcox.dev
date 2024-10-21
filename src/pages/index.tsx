@@ -19,10 +19,9 @@ export default function Index(): JSX.Element {
     () => ({
       Typescript: 5,
       Javascript: 5,
-      PHP: 3,
+      'C++': 4,
+      Ruby: 3,
       SQL: 2,
-      Java: 2,
-      Python: 1,
       Rust: 1,
     }),
     [],
@@ -30,10 +29,10 @@ export default function Index(): JSX.Element {
   const tools: { [index: string]: number } = useMemo(
     () => ({
       React: 5,
-      'React Native': 5,
-      Vue: 4,
+      'React Native': 4,
+      Vue: 3,
       Laravel: 4,
-      '.NET': 3,
+      Rails: 3,
       AWS: 2,
     }),
     [],
@@ -49,10 +48,10 @@ export default function Index(): JSX.Element {
             Garrett Cox
           </Heading>
           <Text color={occupationColor[colorMode]}>
-            Software Engineer with ~ {yearsOfExperience} years of professional experience, Father of 4 beautiful girls,
+            Software Engineer with ~ {yearsOfExperience} years of professional experience, Father of 5 beautiful girls,
             Video Game Nerd, Dr. Pepper Enthusiast
           </Text>
-          <Text color={locationColor[colorMode]}>Norman, Oklahoma</Text>
+          <Text color={locationColor[colorMode]}>Oklahoma City, Oklahoma</Text>
         </Flex>
         <Flex flexDirection="column" mt={8}>
           <CommandText>cat skills.md</CommandText>
