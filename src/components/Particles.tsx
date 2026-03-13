@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import type { ISourceOptions } from '@tsparticles/engine';
 import ParticlesComponent, { initParticlesEngine } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
 import { useTheme } from 'next-themes';
-import type { ISourceOptions } from '@tsparticles/engine';
+import { useEffect, useMemo, useState } from 'react';
 
 export default function Particles() {
   const [init, setInit] = useState(false);

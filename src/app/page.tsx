@@ -1,7 +1,7 @@
 'use client';
 
-import Container from '@/components/Container';
 import { useMemo } from 'react';
+import Container from '@/components/Container';
 
 export default function Home() {
   const languages: Record<string, number> = useMemo(
@@ -45,7 +45,9 @@ export default function Home() {
           <CommandText>cat skills.md</CommandText>
           <div className="flex flex-wrap justify-between">
             <div className="mr-4 flex-[1_1_300px]">
-              <h2 className="mb-2 text-[1.5rem] md:text-[1.875rem] font-bold tracking-tight leading-tight">Languages</h2>
+              <h2 className="mb-2 text-[1.5rem] md:text-[1.875rem] font-bold tracking-tight leading-tight">
+                Languages
+              </h2>
               {Object.keys(languages).map((language) => (
                 <div key={language} className="flex items-center justify-between py-2">
                   <span>{language}</span>
@@ -54,7 +56,9 @@ export default function Home() {
               ))}
             </div>
             <div className="mr-4 flex-[1_1_300px]">
-              <h2 className="mb-2 text-[1.5rem] md:text-[1.875rem] font-bold tracking-tight leading-tight">Frameworks / Tools</h2>
+              <h2 className="mb-2 text-[1.5rem] md:text-[1.875rem] font-bold tracking-tight leading-tight">
+                Frameworks / Tools
+              </h2>
               {Object.keys(tools).map((tool) => (
                 <div key={tool} className="flex items-center justify-between py-2">
                   <span>{tool}</span>
@@ -89,6 +93,7 @@ function StarRating({ rating }: { rating: number }) {
           className={`inline-block h-4 w-4 ${6 - s <= rating ? 'text-[#F6E05E]' : 'text-[#E2E8F0] dark:text-[#2D3748]'}`}
           viewBox="0 0 24 24"
           fill="currentColor"
+          aria-hidden="true"
         >
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
         </svg>

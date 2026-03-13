@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -10,14 +10,14 @@ html {
   scroll-behavior: smooth;
 }
 
-.dark body {
-  background: #101219;
-}
-
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.dark body {
+  background: #101219;
 }
 
 #tsparticles {
