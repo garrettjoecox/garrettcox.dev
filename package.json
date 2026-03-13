@@ -1,46 +1,32 @@
 {
-  "name": "activity",
+  "name": "garrettcox-dev",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write .",
-    "lint": "eslint . --ext ts --ext tsx --ext js"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^1.0.1",
-    "@chakra-ui/react": "^1.0.1",
-    "@chakra-ui/theme-tools": "^1.0.1",
-    "@emotion/react": "^11.1.1",
-    "@emotion/styled": "^11.0.0",
-    "framer-motion": "^2.9.4",
-    "next": "10.0.3",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-tsparticles": "^1.18.11",
-    "redis": "^3.0.2",
-    "swr": "^0.3.9"
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.0.0",
+"next": "^15.0.0",
+    "next-themes": "^0.4.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@types/node": "^14.14.10",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
-    "@types/redis": "^2.8.28",
-    "@typescript-eslint/eslint-plugin": "^4.8.2",
-    "@typescript-eslint/parser": "^4.8.2",
-    "eslint": "^7.14.0",
-    "eslint-config-airbnb-typescript": "^12.0.0",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-formatter-pretty": "^4.0.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.21.5",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "prettier": "^2.2.0",
-    "typescript": "^4.1.2"
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^15.0.0",
+    "prettier": "^3.0.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.0.0"
   }
 }

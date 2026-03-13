@@ -1,0 +1,29 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-bg-dark: #101219;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.dark body {
+  background: #101219;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#tsparticles {
+  position: absolute;
+  z-index: -1;
+  min-width: 100vw;
+  min-height: 100vh;
+  height: 100%;
+}
